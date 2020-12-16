@@ -1,0 +1,52 @@
+{% extends 'index2.html' %}
+{% block content %}
+<div class="wrapper row1">
+  <section id="ctdetails" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <ul class="nospace clear">
+      <li class="one_quarter first">
+        <div class="block clear"><a href="inventorytable"><i class="fas fa-info-circle"></i></a> <span><strong>INVENTORY TABLE</strong></span></div>
+      </li>
+      <li class="one_quarter">
+        <div class="block clear"><a href="ordertable"><i class="fas fa-box"></i></a> <span><strong>ORDERS</strong></span></div>
+      </li>
+      <li class="one_quarter">
+        <div class="block clear"><a href="suppliertable"><i class="fas fa-handshake"></i></a> <span><strong>SUPPLIERS</strong></span></div>
+      </li>
+     
+      <li class="one_quarter">
+        <div class="block clear"><a href="to_ordertable"><i class="fas fa-shopping-cart"></i></a> <span><strong>TO_ORDER</strong></span></div>
+      </li>
+     
+      
+    </ul>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+<br>
+<br>
+<h3>Currently viewing {{header}}</h3>
+<p><a href="add_purchases" role="button">Add a Purchase</a></p>
+<table>
+        <tr>
+        
+          <th>date</th>
+          <th>product_id</th>
+          <th>number_received</th>
+          
+        
+        </tr>
+        {% for item in query_results4 %}
+        <tr>
+           
+          <td>{{item.date}}</td>
+          <td>{{item.product_id}}</td>
+          <td>{{item.number_received}}</td>
+          
+             <!--<a href="{% url 'edit_purchases' item.id %}" class="btn" >Edit</a>-->
+            <!--<a href="{% url 'delete_purchases' item.id %}" class="btn" >Delete</a>-->
+          
+        </tr>
+        {% endfor %}
+      </table>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'index2.html' %}
+{% block content %}
+<div class="wrapper row1">
+  <section id="ctdetails" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <ul class="nospace clear">
+      <li class="one_quarter first">
+        <div class="block clear"><a href="inventorytable"><i class="fas fa-info-circle"></i></a> <span><strong>INVENTORY TABLE</strong></span></div>
+      </li>
+      <li class="one_quarter">
+        <div class="block clear"><a href="ordertable"><i class="fas fa-box"></i></a> <span><strong>ORDERS</strong></span></div>
+      </li>
+     
+      <li class="one_quarter">
+        <div class="block clear"><a href="purchasetable"><i class="fas fa-luggage-cart"></i></a> <span><strong>PURCHASES</strong></span></div>
+      </li>
+      <li class="one_quarter">
+        <div class="block clear"><a href="suppliertable"><i class="fas fa-handshake"></i></a> <span><strong>SUPPLIERS</strong></span></div>
+      </li>
+      
+      
+    </ul>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+<br>
+<br>
+<h3>Currently viewing {{header}}</h3>
+<p><a href="add_to_order" role="button">Add an item to reorder</a></p>
+<table>
+        <tr>
+       
+          <th>supplier_id</th>
+          <th>model_number</th>
+          <th>Amount</th>
+          <th>Delete</th>
+        </tr>
+        {% for item in query_results5 %}
+        <tr>
+          <td>{{item.supplier_id}}</td>
+          <td>{{item.model_number}}</td>
+          <td>{{item.number}}</td>
+          <td>
+           <!--<a href="{% url 'edit_to_order' item.id %}" class="btn" >Edit</a>-->
+           <a href="{% url 'delete_to_order' item.id %}" class="btn" >Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+{% endblock %}

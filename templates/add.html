@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add</title>
+    <link rel ="stylesheet" href ="{% static 'layout/styles/style3.css'%}">
+</head>
+<body style="background-image:url({% static 'images/demo/backgrounds/bg47.jpg'%});">
+<form style="background-image:url({% static 'images/demo/backgrounds/bg48.jpeg'%});" class="box1" method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+    <div >
+        <label for="id_{{ field.name }}" > {{ field.label }}</label>
+        <div>
+           {{field}}
+        </div>
+    </div>
+    {% endfor %}
+    <button type="submit"  name="button">Add</button>
+</form>
+<div>
+    {% for message in messages %}
+        <script>alert("{{message}}")</script>
+        {% endfor %}
+    </div>
+</body>
+</html>

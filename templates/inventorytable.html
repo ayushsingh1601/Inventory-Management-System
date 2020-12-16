@@ -1,0 +1,129 @@
+{% extends 'index2.html' %}
+{% block content %}
+<div class="wrapper row1">
+  <section id="ctdetails" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <ul class="nospace clear">
+      
+      <li class="one_quarter first">
+        <div class="block clear"><a href="ordertable"><i class="fas fa-box"></i></a> <span><strong>ORDERS</strong></span></div>
+      </li>
+      <li class="one_quarter">
+        <div class="block clear"><a href="purchasetable"><i class="fas fa-luggage-cart"></i></a> <span><strong>PURCHASES</strong></span></div>
+      </li>
+      <li class="one_quarter ">
+        <div class="block clear"><a href="suppliertable"><i class="fas fa-handshake"></i></a> <span><strong>SUPPLIERS</strong></span></div>
+      </li>
+      <li class="one_quarter">
+        <div class="block clear"><a href="to_ordertable"><i class="fas fa-shopping-cart"></i></a> <span><strong>TO_ORDER</strong></span></div>
+      </li>
+     
+      
+    </ul>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+
+<!--
+  <ul class= "nospace clear">
+        <li>
+        <form action="search" method="post">
+            {% csrf_token %}
+            <input type="text" placeholder="search by model_number" name="var">
+            <input type="submit">
+        </form>
+      </li>
+      <li> 
+        <br>
+        
+         <form action="search1" method="post">
+              {% csrf_token %}
+              <input type="text" placeholder="search by model_name" name="var">
+              <input type="submit">
+          </form>
+        </li>
+        <li>         <br>           <form action="search2" method="post">
+                {% csrf_token %}
+                <input type="text" placeholder="search by brand" name="var">
+                <input type="submit">
+            </form>
+            </li>
+          </ul>
+    -->
+
+    
+        <!-- main body -->
+        <!-- ################################################################################################ -->
+    
+          <ul class="nospace group grid-3">
+              <li class="one_third">
+                  <br>
+                    <form action="search2" method="post">
+                      {% csrf_token %}
+                      <input type="text" placeholder="search by brand" name="var">
+                      <input type="submit">
+                  </form>
+                </li>
+              
+                <li class="one_third">
+                    <br>
+              
+                    <form action="search1" method="post">
+                         {% csrf_token %}
+                         <input type="text" placeholder="search by model_name" name="var">
+                         <input type="submit">
+                     </form>
+                  </li>
+                  <li class="one_third">
+                      <br>
+                      <form action="search" method="post">
+                          {% csrf_token %}
+                          <input type="text" placeholder="search by model_number" name="var">
+                          <input type="submit">
+                      </form>
+                    </li>
+          </ul>
+          
+  
+<br><br>
+    
+<h3>Currently viewing {{header}}</h3>
+<p><a href="add_inventory" role="button">Add an item in Inventory</a></p>
+<table>
+        <tr>
+        <th>product_id</th>
+          <th>brand</th>
+          <th>model_name</th>
+          <th>model_number</th>
+          <th>price</th>
+          <th>starting inventory</th>
+          <th>supplier's id</th>
+          <th>inventory received</th>
+          <th>inventory shipped</th>
+          <th>inventory on hand</th>
+          <th>minimum required</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        {% for item in query_results %}
+        <tr>
+           <td>{{item.id}}</td>
+          <td>{{item.brand}}</td>
+          <td>{{item.model_name}}</td>
+          <td>{{item.model_number}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.starting_inventory}}</td>
+          <td>{{item.supplier_id}}</td>
+          <td>{{item.inventory_received}}</td>
+          <td>{{item.inventory_shipped}}</td>
+          <td>{{item.current_inventory}}</td>
+          <td>{{item.minimum_required}}</td>
+          <td>
+            <a href="{% url 'edit_inventory' item.id %}" class="btn" >Edit</a></td>
+            <td>
+            <a href="{% url 'delete_inventory' item.id %}" class="btn inverse" >Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+{% endblock %}

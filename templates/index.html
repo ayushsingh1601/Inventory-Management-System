@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="">
+<head>
+<title>Inventory_Management_System</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'layout/styles/layout.css'%}" rel="stylesheet" type="text/css" media="all">
+<link rel ="stylesheet" href ="{% static 'layout/styles/style4.css'%}">
+</head>
+<body id="top">
+<div class="wrapper row0">
+  <div id="topbar" class="hoc clear"> 
+    <div class="fl_left">
+      <ul class="nospace">
+        <li>          </li>
+        <li>          </li>
+        <li>          </li>
+        <li>          </li>
+        <li>          </li>
+        <li>                                                                     </li>
+        <li>                                                                     </li>
+        <li>                                                                           </li>
+        <li>                                                                          </li>
+        <li>          </li>
+        <li>          </li>
+        <li>          </li>
+        <li>          </li>
+        <li>          </li>
+        <li>          </li>
+        <li>          </li>
+        <li>          </li>
+        <li>          </li>
+        <li>          </li>
+        <li>          </li>
+        <li>          </li>
+        <li>          </li>
+        <li>Inventory Management System</li>
+
+      </ul>
+    </div>
+
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+
+<div class="wrapper row1">
+  <section id="ctdetails" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <ul class="nospace clear">
+      <li class="one_quarter first">
+        <div class="block clear"><a href="#"><i class="fas fa-phone"></i></a> <span><strong>Give us a call:</strong> +91 7985409591</span></div>
+      </li>
+      <li class="one_quarter">
+        <div class="block clear"><a href="mailto:dishant2361@gmail.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a> <span><strong>Send us a mail:</strong>dchourasia.cse18@itbhu.ac.in
+        </span></div>
+      </li>
+      <li class="one_quarter">
+        <div class="block clear"><a href="https://www.timeanddate.com/"><i class="fas fa-clock"></i></a> <span><strong> Mon. - Sat.:</strong> 08.00am - 18.00pm</span></div>
+      </li>
+      <li class="one_quarter">
+        <div class="block clear"><a href="#"><i class="fas fa-map-marker-alt"></i></a> <span><strong>Come visit us:</strong> Directions to <a href="https://www.google.com/maps/dir/25.2621408,82.9933053/CSE+Dept,+IIT+BHU,+Varanasi,+Uttar+Pradesh+221005/@25.2622639,82.9909683,17z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x398e3152738d05dd:0x3c68a89c5a4199c6!2m2!1d82.9934203!2d25.2624575">our location</a></span></div>
+      </li>
+    </ul>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- Top Background Image Wrapper -->
+{% if user.is_authenticated %}
+<div class="bgded overlay" style="background-image:url({% static 'images/demo/backgrounds/bg45.jpg'%})";> 
+{% else %}
+<div class="bgded overlay" style="background-image:url({% static 'images/demo/backgrounds/bg6.jpeg'%})";> 
+{% endif %}
+  <!-- ################################################################################################ -->
+  
+  <div id="pageintro" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <article>
+      
+      {% if user.is_authenticated %}
+        <h3 class="heading">Welcome {{user.username}}</h3> 
+      {% else %}
+        <h3 class="heading">Welcome User</h3> 
+        <h4>Please Login or register to <br>use the inventory. </h4>
+      {% endif %}
+      
+      <footer>
+        <ul class="nospace inline pushright">
+          {% if user.is_authenticated %}
+									<li>Hello, {{user.first_name}} </li>
+									<li><a class="btn inverse" href="accounts/logout">Logout</a></li>
+									{% else %}
+									<li><a class="btn inverse" href="accounts/login">Login</a></li>
+									<li><a class="btn inverse" href="accounts/register">Register</a></li>
+									{% endif %}
+        </ul>
+      </footer>
+    </article>
+    <!-- ################################################################################################ -->
+  </div>
+  <!-- ################################################################################################ -->
+</div>
+
+<!-- End Top Background Image Wrapper -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <section id="introblocks">
+        {% if user.is_authenticated %}
+      <ul class="nospace group grid-3">
+        <li class="one_third">
+          <figure><a class="imgover" href="inventorytable"><img src="{% static 'images/demo/backgrounds/bg3.jpg'%}" alt=""></a>
+            <figcaption><a href="inventorytable">Inventory Table</a></figcaption>
+          </figure>
+        </li>
+        
+
+        <li class="one_third">
+          <figure><a class="imgover" href="ordertable"><img src="{% static 'images/demo/backgrounds/bg3.jpg'%}" alt=""></a>
+            <figcaption><a href="ordertable">Orders</a></figcaption>
+          </figure>
+        </li>
+        
+       
+          
+        <li class="one_third">
+            <figure><a class="imgover" href="purchasetable"><img src="{% static 'images/demo/backgrounds/bg3.jpg'%}" alt=""></a>
+              <figcaption><a href="purchasetable">Purchases</a></figcaption>
+            </figure>
+          </li>
+
+          <li class="one_third">
+            <figure><a class="imgover" href="suppliertable"><img src="{% static 'images/demo/backgrounds/bg3.jpg'%}" alt=""></a>
+              <figcaption><a href="suppliertable">Suppliers</a></figcaption>
+            </figure>
+          </li>
+          <li class="one_third">
+            <figure><a class="imgover" href="to_ordertable"><img src="{% static 'images/demo/backgrounds/bg3.jpg'%}" alt=""></a>
+              <figcaption><a href="to_ordertable">To Order</a></figcaption>
+            </figure>
+          </li>
+       
+      </ul>
+      {% endif %}
+    </section>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+  </main>
+</div>
+  </section>
+</div>
+
+<div class="wrapper row3">
+  <section id="services" class="hoc container clear"> 
+      {% block content%}
+
+      {% endblock %}
+    <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="bgded overlay" style = "background-image:url({% static 'images/demo/backgrounds/bg30.jpg'%});">
+  <section id="testimonials" class="hoc container clear"> 
+    
+    <!-- ################################################################################################ -->
+    <article>
+      <figure><img src="{% static 'images/demo/backgrounds/bg112.jpg'%}" alt=""></figure>
+      <h6 class="heading font-x2">Creators </h6>
+      <em>Indian Institute Of Technology,Varanasi</em>
+      <blockquote>Dishant Chourasia <br>Ayush Singh<br>Asht Bhuja Prasad Rastogi</blockquote>
+    </article>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row2">
+  <section class="hoc container clear"> 
+    <!-- ################################################################################################ -->
+
+  </section>
+</div>
+<!-- Bottom Background Image Wrapper -->
+<div class="bgded overlay" style="background-image:url({% static 'images/demo/backgrounds/bg46.jpg'%});"> 
+  <!-- ################################################################################################ -->
+  <div class="wrapper row4">
+    <footer id="footer" class="hoc clear"> 
+      <!-- ################################################################################################ -->
+      <div class="group btmspace-50">
+        <div class="one_quarter first">
+          <h1 >Contact</h1>
+          <p>To get more informatiton about us and our upcoming products<br>Do follow us on the following social media sites.</p>
+          <ul class="faico clear">
+            <li><a class="faicon-facebook" href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a></li>
+            <li><a class="faicon-linkedin" href="https://in.linkedin.com/"><i class="fab fa-linkedin"></i></a></li>
+            <li><a class="faicon-twitter" href="https://twitter.com/login?lang=en"><i class="fab fa-twitter"></i></a></li>
+
+          </ul>
+        </div>
+    
+     
+      </div>
+      <!-- ################################################################################################ -->
+      <hr class="btmspace-50">
+      <!-- ################################################################################################ -->
+      <nav>
+        <ul class="nospace">
+          <li><a href=""><i class="fas fa-lg fa-home"></i></a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Cookies</a></li>
+          <li><a href="#">Disclaimer</a></li>
+        </ul>
+      </nav>
+      <!-- ################################################################################################ -->
+    </footer>
+  </div>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+
+  <!-- ################################################################################################ -->
+</div>
+<!-- End Bottom Background Image Wrapper -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="{% static 'layout/scripts/jquery.min.js'%}"></script>
+<script src="{% static 'layout/scripts/jquery.backtotop.js'%}"></script>
+<script src="{% static 'layout/scripts/jquery.mobilemenu.js'%}"></script>
+</body>
+</html>

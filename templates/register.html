@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration</title>
+    <link rel ="stylesheet" href ="{% static 'layout/styles/style2.css' %}">
+</head>
+<body style="background-image:url({% static 'images/demo/backgrounds/bg50.jpg'%});">
+    <form class="box" action="register" method="post">
+        {% csrf_token %}
+<h1> Register </h1>
+        <input type="text" name="first_name" placeholder="First name"><br>
+        <input type="text" name="last_name" placeholder="Last name"><br>
+        <input type="text" name="username" placeholder="User name"><br>
+        <input type="text" name="email" placeholder="E-mail"><br>
+        <input type="password" name="password1" placeholder="Password"><br>
+        <input type="password" name="password2" placeholder="Comfirm password"><br>
+        <input type="submit"><br>
+
+    </form>
+    <div>
+        {% for message in messages %}
+            <script>alert("{{message}}")</script>
+            {% endfor %}
+        </div>
+
+</body>
+</html>
+
+
+

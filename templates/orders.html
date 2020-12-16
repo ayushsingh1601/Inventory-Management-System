@@ -1,0 +1,58 @@
+{% extends 'index2.html' %}
+{% block content %}
+
+<div class="wrapper row1">
+  <section id="ctdetails" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <ul class="nospace clear">
+      <li class="one_quarter first">
+        <div class="block clear"><a href="inventorytable"><i class="fas fa-info-circle"></i></a> <span><strong>INVENTORY TABLE</strong></span></div>
+      </li>
+      <li class="one_quarter">
+        <div class="block clear"><a href="purchasetable"><i class="fas fa-luggage-cart"></i></a> <span><strong>PURCHASES</strong></span></div>
+      </li>
+      <li class="one_quarter">
+        <div class="block clear"><a href="suppliertable"><i class="fas fa-handshake"></i></a> <span><strong>SUPPLIERS</strong></span></div>
+      </li>
+      <li class="one_quarter">
+        <div class="block clear"><a href="to_ordertable"><i class="fas fa-shopping-cart"></i></a> <span><strong>TO_ORDER</strong></span></div>
+      </li>
+     
+      
+    </ul>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+<br>
+<br>
+
+<h3>Currently viewing {{header}}</h3>
+<p><a href="add_orders" role="button">Add an Order</a></p>
+<table>
+        <tr>
+        
+          <th>First_Name</th>
+          <th>Last_Name</th>
+          <th>Product_Id</th>
+          <th>Number_Shipped</th>
+          <th>Order_Date</th>
+          <th>Delete</th>
+        </tr>
+        {% for item in query_results3 %}
+        <tr>
+           
+          <td>{{item.first_name}}</td>
+          <td>{{item.last_name}}</td>
+          <td>{{item.product_id}}</td>
+          <td>{{item.number_shipped}}</td>
+          <td>{{item.order_date}}</td>
+          <td>
+             <!--<a href="{% url 'edit_orders' item.id %}" class="btn" >Edit</a>-->
+            <a href="{% url 'delete_orders' item.id %}" class="btn" >Delete</a>
+            
+          </td>
+        
+        </tr>
+        {% endfor %}
+      </table>
+{% endblock %}
